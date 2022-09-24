@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
 html {
   font-size: 62.5%;
-  /* scroll-behavior: smooth; */
+   scroll-behavior: smooth; 
   /* 1rem = 10px */
   overflow-x: hidden;
 }
@@ -157,6 +157,10 @@ input, textarea{
     cursor: pointer;
     }
 
+
+
+`;
+/* 
 @media (max-width: ${({ theme }) => theme.media.tab}) {
     .container {
     max-width: 130rem;
@@ -176,5 +180,4 @@ input, textarea{
           grid-template-columns: 1fr;
         }
     }
-
-`;
+*/
