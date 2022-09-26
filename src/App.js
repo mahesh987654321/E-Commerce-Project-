@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import About from "./About";
 import Cart from "./Cart";
+import Headers from "./components/Headers";
 import Contact from "./Contact";
 import Error from "./Error";
 import { GlobalStyle } from "./GlobalStyle";
@@ -36,6 +37,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <Headers />
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Home />} />
