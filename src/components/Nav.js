@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
 const Nav = () => {
   const Nav = styled.nav`
+    position: relative;
     .navbar-lists {
       display: flex;
       gap: 4.8rem;
@@ -17,12 +18,12 @@ const Nav = () => {
           font-size: 1.8rem;
           font-weight: 800;
           text-transform: uppercase;
-          color: ${(theme) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.black};
           transition: color 0.3s linier;
         }
         &:hover,
         &:active {
-          color: ${(theme) => theme.colors.helper};
+          color: ${({ theme }) => theme.colors.helper};
         }
       }
     }
@@ -43,19 +44,19 @@ const Nav = () => {
       .cart-trolley {
         position: relative;
         font-size: 5.2rem;
-        .cart-total--item {
-          width: 2.4rem;
-          height: 2.4rem;
-          position: absolute;
-          background-color: #000;
-          color: #000;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          top: -20%;
-          left: 70%;
-          background-color: ${(theme) => theme.colors.helper};
-        }
+      }
+      .cart-total--item {
+        width: 2.4rem;
+        height: 2.4rem;
+        position: absolute;
+        background-color: aqua;
+        color: black;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        top: -20%;
+        left: 70%;
+        background-color: ${({ theme }) => theme.colors.helper};
       }
       .user-login--name {
         text-transform: capitalize;
@@ -66,14 +67,14 @@ const Nav = () => {
         padding: 0.8rem 1.4rem;
       }
     }
-    @media (max-width: ${(theme) => theme.media.mobile}) {
+    @media (max-width: ${({ theme }) => theme.media.mobile}) {
       .mobile-nav-btn {
         display: inline-block;
         z-index: 9999;
-        border: ${(theme) => theme.colors.black};
+        border: ${({ theme }) => theme.colors.black};
         .mobile-nav-icon {
           font-size: 4.2rem;
-          color: ${(theme) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.black};
         }
       }
       .active .mobile-nav-icon {
@@ -82,7 +83,7 @@ const Nav = () => {
         position: absolute;
         top: 30%;
         right: 10%;
-        color: ${(theme) => theme.colors.black};
+        color: ${({ theme }) => theme.colors.black};
         z-index: 9999;
       }
       .active .close-outline {
@@ -134,6 +135,40 @@ const Nav = () => {
       }
     }
   `;
+  return (
+    <Nav>
+      <div className="navbar">
+        <ul className="navbar-lists">
+          <li>
+            <NavLink to="/" className="navbar-link home-link">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" className="navbar-link home-link">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/product" className="navbar-link home-link">
+              Product
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className="navbar-link home-link">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+              <AiOutlineShoppingCart className="cart-trolley" />
+              <span className="cart-total--item">10</span>
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </Nav>
+  );
 };
 
 export default Nav;
