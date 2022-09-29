@@ -2,7 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CgClose, CgMenu } from "react-icons/cg";
+import { useState } from "react";
 const Nav = () => {
+  const [menuIcon, setMenuIcon] = useState();
   const Nav = styled.nav`
     position: relative;
     .navbar-lists {
@@ -137,25 +140,41 @@ const Nav = () => {
   `;
   return (
     <Nav>
-      <div className="navbar">
+      <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
           <li>
-            <NavLink to="/" className="navbar-link home-link">
+            <NavLink
+              onClick={() => setMenuIcon(false)}
+              to="/"
+              className="navbar-link home-link"
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className="navbar-link home-link">
+            <NavLink
+              onClick={() => setMenuIcon(false)}
+              to="/about"
+              className="navbar-link home-link"
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/product" className="navbar-link home-link">
+            <NavLink
+              onClick={() => setMenuIcon(false)}
+              to="/product"
+              className="navbar-link home-link"
+            >
               Product
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className="navbar-link home-link">
+            <NavLink
+              onClick={() => setMenuIcon(false)}
+              to="/contact"
+              className="navbar-link home-link"
+            >
               Contact
             </NavLink>
           </li>
@@ -166,6 +185,18 @@ const Nav = () => {
             </NavLink>
           </li>
         </ul>
+        <div className="mobile-nav-btn">
+          <CgMenu
+            onClick={() => setMenuIcon(true)}
+            name="menu-outline"
+            className="mobile-nav-icon"
+          />
+          <CgClose
+            onClick={() => setMenuIcon(false)}
+            name="close-outline"
+            className="mobile-nav-icon close-outline"
+          />
+        </div>
       </div>
     </Nav>
   );

@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+import About from "./About";
+import HeroSection from "./components/HeroSection";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const data = {
+    name: "Mahesh's Store",
+  };
 
-export default Home
+  return (
+    <div>
+      <HeroSection myData={data} /> <About myData={data} />
+    </div>
+  );
+};
+
+export default Home;
