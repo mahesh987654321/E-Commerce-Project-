@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import About from "./About";
+
 import HeroSection from "./components/HeroSection";
+import Services from "./components/Services";
+import Trusted from "./components/Trusted";
 
 const Home = () => {
   const data = {
@@ -10,7 +12,9 @@ const Home = () => {
 
   return (
     <div>
-      <HeroSection myData={data} /> <About myData={data} />
+      <HeroSection myData={data} />
+      <Services />
+      <Trusted />
     </div>
   );
 };
