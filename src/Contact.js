@@ -10,6 +10,7 @@ const Contact = () => {
 
       .contact-form {
         max-width: 50rem;
+        /* man */
         margin: auto;
 
         .contact-inputs {
