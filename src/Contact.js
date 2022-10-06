@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import styled from "styled-components";
 
 const Contact = () => {
@@ -48,7 +49,11 @@ const Contact = () => {
       ></iframe>
       <div className="container">
         <div className="contact-form">
-          <form className="contact-inputs" action="" method="POST">
+          <form
+            className="contact-inputs"
+            action="https://formspree.io/f/xqkjbavk"
+            method="POST"
+          >
             <input
               type="text"
               autoComplete="off"

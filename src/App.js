@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import About from "./About";
 import Cart from "./Cart";
+import Footer from "./components/Footer";
 import Headers from "./components/Headers";
 import Contact from "./Contact";
 import Error from "./Error";
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
