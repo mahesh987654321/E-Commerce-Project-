@@ -31,7 +31,7 @@ const AppProvider = ({ children }) => {
     try {
       const res = await axios.get(url);
       const singleProducts = res.data;
-      dispatch({ type: "MY_SINGLE_DATA", payload: singleProducts });
+      dispatch({ type: "MY_SINGLE_PRODUCT", payload: singleProducts });
     } catch (error) {
       dispatch({ type: "SINGLE_ERROR" });
     }
@@ -41,7 +41,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, getSingleProducts }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 const useProduceContext = () => {
