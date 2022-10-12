@@ -11,6 +11,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import Home from "./Home";
 import Products from "./Products";
 import SingleProduct from "./SingleProduct";
+import TransformText from "./TransformText";
 const App = () => {
   const theme = {
     colors: {
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
         </Routes>
+
         <Footer />
       </Router>
     </ThemeProvider>
