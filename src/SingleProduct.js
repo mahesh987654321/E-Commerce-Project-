@@ -8,6 +8,7 @@ import MyImage from "./components/MyImage";
 import PageNavigation from "./components/PageNavigation";
 import { useProduceContext } from "./context/productcontex";
 import FormatePrice from "./Helpers/FormatePrice";
+import { Container } from "./styles/Container";
 const API = "https://api.pujakaitem.com/api/products";
 const SingleProduct = () => {
   const { getSingleProducts, isSingleLoading, singleProducts } =
@@ -43,65 +44,66 @@ const SingleProduct = () => {
   return (
     <Wrapper>
       <PageNavigation title={name} />
-      <div className="container">
-        <div className="grid grid-two-column"></div>
-        {/* product Images  */}
-        <div className="product_images">
-          <MyImage imgs={image} />
-        </div>
-        {/* product dAta  */}
-        <div className="product-data">
+      <Container className="container">
+        <div className="grid grid-two-column">
+          {/* product Images  */}
+          <div className="product_images">
+            <MyImage imgs={image} />
+          </div>
+          {/* product dAta  */}
           <div className="product-data">
-            <h2>{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews} reviews</p>
-            <p className="product-data-price">
-              MRP:
-              <del>
-                <FormatePrice price={price + 250000} />
-              </del>
-            </p>
-            <p className="product-data-price product-data-real-price">
-              Deal of the Day: <FormatePrice price={price} />
-            </p>
-            <p>{description}</p>
-            <div className="product-data-warranty">
-              <div className="product-warranty-data">
-                <TbTruckDelivery className="warranty-icon" />
-                <p>Free Delivery</p>
-              </div>
-
-              <div className="product-warranty-data">
-                <TbReplace className="warranty-icon" />
-                <p>30 Days Replacement</p>
-              </div>
-
-              <div className="product-warranty-data">
-                <TbTruckDelivery className="warranty-icon" />
-                <p>Thapa Delivered </p>
-              </div>
-
-              <div className="product-warranty-data">
-                <MdSecurity className="warranty-icon" />
-                <p>2 Year Warranty </p>
-              </div>
-            </div>
-
-            <div className="product-data-info">
-              <p>
-                Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+            <div className="product-data">
+              <h2>{name}</h2>
+              <p>{stars}</p>
+              <p>{reviews} reviews</p>
+              <p className="product-data-price">
+                MRP:
+                <del>
+                  <FormatePrice price={price + 250000} />
+                </del>
               </p>
-              <p>
-                ID : <span> {id} </span>
+              <p className="product-data-price product-data-real-price">
+                Deal of the Day: <FormatePrice price={price} />
               </p>
-              <p>
-                Brand :<span> {company} </span>
-              </p>
+              <p>{description}</p>
+              <div className="product-data-warranty">
+                <div className="product-warranty-data">
+                  <TbTruckDelivery className="warranty-icon" />
+                  <p>Free Delivery</p>
+                </div>
+
+                <div className="product-warranty-data">
+                  <TbReplace className="warranty-icon" />
+                  <p>30 Days Replacement</p>
+                </div>
+
+                <div className="product-warranty-data">
+                  <TbTruckDelivery className="warranty-icon" />
+                  <p>Thapa Delivered </p>
+                </div>
+
+                <div className="product-warranty-data">
+                  <MdSecurity className="warranty-icon" />
+                  <p>2 Year Warranty </p>
+                </div>
+              </div>
+
+              <div className="product-data-info">
+                <p>
+                  Available:
+                  <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+                </p>
+                <p>
+                  ID : <span> {id} </span>
+                </p>
+                <p>
+                  Brand :<span> {company} </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </Wrapper>
   );
 };
