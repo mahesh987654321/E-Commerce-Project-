@@ -6,6 +6,7 @@ import { ScaleLoader } from "react-spinners";
 import styled from "styled-components";
 import MyImage from "./components/MyImage";
 import PageNavigation from "./components/PageNavigation";
+import Stars from "./components/Stars";
 import { useProduceContext } from "./context/productcontex";
 import FormatePrice from "./Helpers/FormatePrice";
 import { Container } from "./styles/Container";
@@ -54,8 +55,9 @@ const SingleProduct = () => {
           <div className="product-data">
             <div className="product-data">
               <h2>{name}</h2>
-              <p>{stars}</p>
-              <p>{reviews} reviews</p>
+
+              <Stars stars={stars} reviews={reviews} />
+
               <p className="product-data-price">
                 MRP:
                 <del>
