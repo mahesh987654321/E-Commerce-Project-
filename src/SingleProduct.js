@@ -4,6 +4,7 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { useParams } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 import styled from "styled-components";
+import AddToCart from "./components/AddToCart";
 import MyImage from "./components/MyImage";
 import PageNavigation from "./components/PageNavigation";
 import Stars from "./components/Stars";
@@ -14,7 +15,7 @@ const API = "https://api.pujakaitem.com/api/products";
 const SingleProduct = () => {
   const { getSingleProducts, isSingleLoading, singleProducts } =
     useProduceContext();
-  console.log(singleProducts);
+
   const { id } = useParams();
   const {
     id: alias,
@@ -103,6 +104,8 @@ const SingleProduct = () => {
                 </p>
               </div>
             </div>
+            <hr />
+            {stock > 0 && <AddToCart products={singleProducts} />}
           </div>
         </div>
       </Container>
