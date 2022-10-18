@@ -2,9 +2,19 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
+import CartAmountToggle from "./CartAmountToggle";
+import { NavLink } from "react-router-dom";
+import { Button } from "../styles/Button";
 const AddToCart = ({ products }) => {
+  const [amount, setAmount] = useState(1);
   const { id, colors, stock } = products;
   const [color, setColor] = useState(colors[0]);
+  const setDecrease = () => {
+    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  };
+  const setIncrease = () => {
+    amount < stock ? setAmount(amount + 1) : setAmount(stock);
+  };
   return (
     <Wrapper>
       <div className="colors">
@@ -24,6 +34,14 @@ const AddToCart = ({ products }) => {
           })}
         </p>
       </div>
+      <CartAmountToggle
+        amount={amount}
+        setDecrease={setDecrease}
+        setIncrease={setIncrease}
+      />
+      <NavLink to="/cart">
+        <Button className="btn">Add To Cart</Button>
+      </NavLink>
     </Wrapper>
   );
 };
@@ -54,9 +72,9 @@ const Wrapper = styled.section`
     font-size: 1rem;
     color: #fff;
   }
-.r{
+  .r {
     color: white;
-}
+  }
   /* we can use it as a global one too  */
   .amount-toggle {
     margin-top: 3rem;
