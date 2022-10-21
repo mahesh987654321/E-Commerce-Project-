@@ -1,8 +1,38 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import FormatePrice from "../Helpers/FormatePrice";
+import { Button } from "../styles/Button";
 
-const ListView = () => {
-  return <div>ListView</div>;
+const ListView = ({ products }) => {
+  return (
+    <Wrapper className="section">
+      <div className="container grid">
+        {products.map((curElem) => {
+          const { id, name, image, price, description } = curElem;
+          return (
+            <div className="card grid grid-two-column">
+              <figure>
+                <img src={image} alt={name} />
+              </figure>
+
+              <div className="card-data">
+                <h3>{name}</h3>
+                <p>
+                  <FormatePrice price={price} />
+                </p>
+                <p>{description.slice(0, 90)}...</p>
+
+                <NavLink to={`/singleproduct/${id}`} className="btn-main">
+                  <Button className="btn">Read More</Button>
+                </NavLink>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.section`
   padding: 9rem 0;
